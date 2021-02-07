@@ -50,7 +50,7 @@ func Start(conf config.Config) {
 			return
 		}
 
-		c.String(http.StatusOK, "%s", out)
+		c.String(http.StatusOK, "%s", out.String())
 	})
 	r.Run(fmt.Sprintf("127.0.0.1:%d", int(conf.Port))) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
