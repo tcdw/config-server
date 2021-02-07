@@ -16,6 +16,10 @@ type IncData struct {
 }
 
 func Start(conf config.Config) {
+	if !conf.Debug {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
 	r := gin.Default()
 	r.GET("/:token/:data/:variant", func(c *gin.Context) {
 		token := c.Param("token")
@@ -48,5 +52,5 @@ func Start(conf config.Config) {
 
 		c.String(http.StatusOK, "%s", out)
 	})
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	r.Run(fmt.Sprintf("127.0.0.1:%d", int(conf.Port))) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }

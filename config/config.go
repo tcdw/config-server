@@ -8,8 +8,10 @@ import (
 )
 
 type Config struct {
-	Token        string `json:"token"`
-	TemplatePath string `json:"templatePath"`
+	Token        string  `json:"token"`
+	TemplatePath string  `json:"templatePath"`
+	Port         float64 `json:"port"`
+	Debug        bool    `json:"debug"`
 }
 
 func GetConfig(p string) (config *Config, err error) {
