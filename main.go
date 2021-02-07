@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"github.com/jessevdk/go-flags"
 	"github.com/tcdw/config-server/config"
+	"github.com/tcdw/config-server/server"
 	"os"
 )
 
@@ -22,5 +22,5 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(conf.Token)
+	server.Start(*conf)
 }

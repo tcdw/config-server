@@ -30,5 +30,5 @@ func GetConfig(p string) (config *Config, err error) {
 
 	err = json.Unmarshal(content, &config)
 
-	return config, nil
+	return config, err
 }
